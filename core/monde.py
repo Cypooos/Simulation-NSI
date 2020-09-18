@@ -21,8 +21,14 @@ class Monde:
         """
         pass
 
-    def generate_world(self,prct_herbes,prct_loups,prct_mouton):
-        return [[]]
+    def generate_world(self,prct_herbes,prct_moutons,prct_loups):
+        return [
+            [[],[],[]],
+            [[],[],[]],
+            [[],[],[]],
+            [[],[],[]],
+            [[],[],[]],
+        ]
 
     
     
