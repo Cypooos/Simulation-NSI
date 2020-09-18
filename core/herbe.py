@@ -1,6 +1,6 @@
 from core.element import Element
 
-class Mouton(Element):
+class Herbe(Element):
 
     def __init__(self):
         pass
