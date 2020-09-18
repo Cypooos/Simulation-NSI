@@ -11,9 +11,9 @@ class Monde:
     La classe qui s'occupe de XXX
     """
 
-    def __init__(self,dimentions):
+    def __init__(self,dimentions=(20,20)):
         self.dimentions = dimentions
-
+        self.carte = self.generate_world(60,30,10) # generation du monde à 60% d'herbe, 30% de mouton et 10% loups
 
     def iteration(self):
         """
