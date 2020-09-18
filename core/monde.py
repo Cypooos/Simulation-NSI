@@ -20,7 +20,13 @@ class Monde:
         """
         Execute une iteration du monde.
         """
-        pass
+        # Action de l'herbe (grandir)
+        for y in self.carte:
+            for x in y:
+                self.carte[y][x].action()
+        # Action des animaux
+        for x in self.carte_entitee:
+            x.action(self)
 
     def get_entites(self,position):
         """
