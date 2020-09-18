@@ -12,5 +12,12 @@ class Mouton(Element):
 
 
     def action(self):
-        pass
+        pass  
         
+    def variationEnergie(self,herbe):
+        if "position mouton != position herbe":
+            self.energie-=1
+        else:
+            self.energie+=gain_nouritture
+            herbe.dead()
+        return self.energie
