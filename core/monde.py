@@ -20,7 +20,13 @@ class Monde:
         """
         Execute une iteration du monde.
         """
-        pass
+        # Action de l'herbe (grandir)
+        for y in self.carte:
+            for x in y:
+                self.carte[y][x].action(self)
+        # Action des animaux
+        for x in self.carte_entitee:
+            x.action(self)
 
     def get_entites(self,position):
         """
@@ -38,7 +44,9 @@ class Monde:
         """
         Génère pourcentage de entité sur des positions de self.dimentions par self.dimentions
         """
-        return [entite(), entite(), entite()]
+        if entite == Herbe:
+            return [entite(),entite(),entite()] 
+        else:return [entite((0,0)), entite((2,2)), entite((0,2))]
 
     
     
