@@ -13,12 +13,12 @@ class Herbe():
     def getColor(self):
         """Retourne la couleur de l'herbe pour PygameGUI"""
         # 100% verte : rgb 66, 245, 72
-        # 100% morte : rgb 191, 191, 101
+        # 100% morte : rgb 161, 140, 72
         ratio = self.quantite / self.max_repousse
 
-        red = 66*ratio+191*(1-ratio)
-        vert = 245*ratio+191*(1-ratio)
-        bleu = 72*ratio+101*(1-ratio)
+        red = 66*ratio+161*(1-ratio)
+        vert = 245*ratio+140*(1-ratio)
+        bleu = 72*ratio+72*(1-ratio)
         return (red,vert,bleu)
 
     def action(self,monde): # L'herbe ne ce deplace pas, juste regenere.
