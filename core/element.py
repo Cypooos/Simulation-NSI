@@ -3,7 +3,7 @@
 class Element():
 
     def __init__(self):
-        pass
+        self.position=position
 
     def action(self,monde):
         pass
