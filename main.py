@@ -3,4 +3,7 @@ from GUI import PygameGui
 
 
 if __name__ == '__main__':
-    print("Start-up")
+    monde = Monde()
+    gui = PygameGui(monde)
+    gui.start()
+    print("Programme fini")
