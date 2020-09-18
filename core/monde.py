@@ -45,7 +45,9 @@ class Monde:
         Génère pourcentage de entité sur des positions de self.dimentions par self.dimentions
         """
         if entite == Herbe:
-            return [entite(),entite(),entite()] 
+            return [[Herbe() for y in range(self.dimentions[1]) ]for x in range(self.dimentions[0])]
+
+
         else:return [entite((0,0)), entite((2,2)), entite((0,2))]
 
     

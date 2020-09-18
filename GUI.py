@@ -3,33 +3,51 @@ import pygame
 
 class PygameGui():
 
-    def __init__(self,monde,sizeX=120,sizeY=100):
+    def __init__(self,monde,size=(100,100)):
         self.screen = None
         self.monde = monde
         self.running = False
-        self.size = (sizeX,sizeY)
+        self.size = size
         pygame.init()
+        self.dt = 0
 
     def draw(self):
-        pass
+        square_tile_sizeX = self.size[0]/self.monde.dimentions[0]
+        square_tile_sizeY = self.size[1]/self.monde.dimentions[1]
+        # dessiner l'herbe
+        for x,ligne in enumerate(self.monde.carte):
+            for y,element in enumerate(ligne):
+                pygame.draw.rect(self.screen,element.getColor(),(square_tile_sizeX*x, square_tile_sizeY*y, square_tile_sizeX, square_tile_sizeY))
+        pygame.display.flip()
 
     def start(self): # start the main loop
         self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption('Simulation')
         self.__mainLoop()
 
-    def __mainLoop(self): # the main loop
+    def __mainLoop(self): # the main loop 
         self.running = True
+        clock = pygame.time.Clock()
+
         while self.running:
+            self.dt = clock.tick()/1000 # Calculation du delaTime utile pour les transitions
+
+            self.draw()
+
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:self.quit()
+                if event.type == pygame.QUIT:self.quit();break
+                elif event.type == pygame.MOUSEBUTTONUP:
+                    pos = pygame.mouse.get_pos()
+                    self.click(pos)
+                elif event.type == pygame.KEYDOWN:
+                    self.keys_down(event.keys)
                 
 
 
     def click(self,pos): # What to do on a click
         pass
 
-    def key_press(self,key): # what to do on a key press
+    def keys_down(self,keys): # Call if a key is clicked
         pass
 
     def quit(self): # Closing the window

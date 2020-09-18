@@ -4,6 +4,6 @@ from GUI import PygameGui
 
 if __name__ == '__main__':
     monde = Monde()
-    gui = PygameGui(monde)
+    gui = PygameGui(monde,(300,300))
     gui.start()
     print("Programme fini")
