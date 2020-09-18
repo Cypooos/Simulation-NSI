@@ -15,7 +15,7 @@ class Mouton(Element):
         pass  
         
     def variationEnergie(self,herbe):
-        if self.position() != herbe.position():
+        if self.position() != "de tout les blocs d'herbe"():
             self.energie-=1
         else:
             self.energie+=gain_nouritture
