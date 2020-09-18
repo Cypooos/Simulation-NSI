@@ -25,3 +25,7 @@ class PygameGui():
     def quit(self): # how to close pygame
         #event ...
         pygame.quit()
+
+    def on_event(self, event):
+        if event.type == QUIT:
+            self._running = False
