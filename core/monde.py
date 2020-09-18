@@ -2,6 +2,7 @@ from core.environnement.herbe import Herbe
 from core.creatures.loup import Loup
 from core.creatures.mouton import Mouton
 
+from random import randint
 
 class Monde:
 
@@ -12,9 +13,8 @@ class Monde:
     def __init__(self,dimentions=(20,20)):
         self.dimentions = dimentions
         self.carte = self.generate(Herbe,100) # generation du monde à 100% d'herbe
-        loups = self.generate(Loup,10) # génère un tableau de loup contenant 10% de loup
-        moutons = self.generate(Mouton,30) # génère un tableau de moutons contenant 30% de moutons
-        self.carte_entitee = loups.extend(moutons) # tableau des loups et moutons
+        self.carte_entitee = self.generate(Loup,10) # génère un tableau de loup contenant 10% de loup
+        self.carte_entitee.extend(self.generate(Mouton,30)) # génère un tableau de moutons contenant 30% de moutons
 
     def iteration(self):
         """
@@ -46,9 +46,8 @@ class Monde:
         """
         if entite == Herbe:
             return [[Herbe() for y in range(self.dimentions[1]) ]for x in range(self.dimentions[0])]
-
-
-        else:return [entite((0,0)), entite((2,2)), entite((0,2))]
+        else:
+            return [entite((randint(0,5),randint(0,5))), entite((randint(0,5),randint(0,5))), entite((randint(0,5),randint(0,5)))] # Pour tester
 
     
     
