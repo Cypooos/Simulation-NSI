@@ -1,7 +1,7 @@
-from core.element import Element
+from core.creature import Creature
 
 
-# pas besoin de hérité de Element, L'herbe est si différente.
+# pas besoin de hÃ©ritÃ© de Element, L'herbe est si diffÃ©rente.
 class Herbe():
 
     nom = "Herbe"
@@ -10,7 +10,7 @@ class Herbe():
     def __init__(self):
         self.quantite = 0
 
-    def action(self): # L'herbe ne ce déplace pas, juste regénère.
+    def action(self): # L'herbe ne ce dÃ©place pas, juste regÃ©nÃ¨re.
         self.quantite += 1
 
     def dead(self):
