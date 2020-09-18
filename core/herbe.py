@@ -1,17 +1,17 @@
 from core.element import Element
 
 
+# pas besoin de hérité de Element, L'herbe est si différente.
+class Herbe():
 
-class Herbe(Element):
-
+    nom = "Herbe"
     duree_repousse = 30
 
     def __init__(self):
-        self.pousse_time = 0
         self.quantite = 0
 
-    def action(self):
-        pass
+    def action(self): # L'herbe ne ce déplace pas, juste regénère.
+        self.quantite += 1
 
     def dead(self):
-        self.quantite -= 10
+        self.quantite = 0
