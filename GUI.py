@@ -5,7 +5,7 @@ class PygameGui():
     def __init__(self,monde):
         self.windows = None
         self.monde = monde
-    
+
     def draw(self):
         pass
 
@@ -21,3 +21,7 @@ class PygameGui():
 
     def key_press(self,key): # what to do on a key press
         pass
+
+    def quit(self): # how to close pygame
+        #event ...
+        pygame.quit()
