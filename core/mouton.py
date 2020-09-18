@@ -1,8 +1,8 @@
-from core.element import Element
+from core.creature import Creature
 from random import randint
 
 
-class Mouton(Element):
+class Mouton(Creature):
 
     nom = "Mouton"
     gain_nouritture = 4

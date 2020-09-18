@@ -1,6 +1,6 @@
 
 # On pourrais renommer Element en "Créature"
-class Element():
+class Creature():
 
     nom = "Sans nom"
 

@@ -1,7 +1,7 @@
-from core.element import Element
+from core.creature import Creature
 from random import randint
 
-class Loup(Element):
+class Loup(Creature):
 
     nom = "Loup"
     gain_nouritture = 19
