@@ -14,10 +14,10 @@ class Mouton(Creature):
 
 
     def action(self):
-        pass  
-        
-    def variationEnergie(self,herbe): # Oula cette fonction est a refaire ^^ D'ailleurs, c'est dans self.action() qu'il faut coder ça
-        if self.position() != "de tout les blocs d'herbe"():
+        pass
+
+    def variationEnergie(self,herbe): # Oula cette fonction est a refaire ^^ D'ailleurs, c'est dans self.action() qu'il faut coder Ã§a
+        if self.position() != # de tout les blocs d'herbe():
             self.energie-=1
         else:
             self.energie+=gain_nouritture
