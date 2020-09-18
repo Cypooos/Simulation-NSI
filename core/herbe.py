@@ -10,7 +10,7 @@ class Herbe():
     def __init__(self):
         self.quantite = 0
 
-    def action(self): # L'herbe ne ce dÃ©place pas, juste regÃ©nÃ¨re.
+    def action(self,monde): # L'herbe ne ce dÃ©place pas, juste regÃ©nÃ¨re.
         self.quantite += 1
 
     def dead(self):

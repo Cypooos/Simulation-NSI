@@ -23,7 +23,7 @@ class Monde:
         # Action de l'herbe (grandir)
         for y in self.carte:
             for x in y:
-                self.carte[y][x].action()
+                self.carte[y][x].action(self)
         # Action des animaux
         for x in self.carte_entitee:
             x.action(self)

@@ -12,6 +12,6 @@ class Loup(Creature):
         self.pos = position
 
 
-    def action(self):
+    def action(self,monde):
         pass
 
