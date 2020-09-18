@@ -1,7 +1,5 @@
-from core.creature import Creature
 from random import randint
 
-# pas besoin de herite de Element, L'herbe est si differente.
 class Herbe():
 
     nom = "Herbe"

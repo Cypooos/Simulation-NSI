@@ -1,5 +1,4 @@
 
-# On pourrais renommer Element en "Créature"
 class Creature():
 
     nom = "Sans nom"

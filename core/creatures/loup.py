@@ -1,4 +1,4 @@
-from core.creature import Creature
+from core.creatures.creature import Creature
 from random import randint
 
 class Loup(Creature):
