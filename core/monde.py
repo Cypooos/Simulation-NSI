@@ -14,6 +14,17 @@ class Monde:
     def __init__(self,dimentions):
         self.dimentions = dimentions
 
+
+    def iteration(self):
+        """
+        Execute une iteration du monde.
+        """
+        pass
+
+    def generate_world(self,prct_herbes,prct_loups,prct_mouton):
+        return [[]]
+
+    
     
 
 
