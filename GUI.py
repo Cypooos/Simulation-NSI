@@ -42,7 +42,7 @@ class PygameGui():
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:self.quit();break
-                elif event.type == pygame.MOUSEBUTTONUP:
+                elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
                     self.click(pos)
                 elif event.type == pygame.KEYDOWN:
