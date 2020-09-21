@@ -12,15 +12,9 @@ class Monde:
 
     def __init__(self,dimentions=(20,20)):
         self.dimentions = dimentions
-<<<<<<< Updated upstream
-        self.carte = self.generate(Herbe,100) # generation du monde Ã  100% d'herbe
-        self.carte_entitee = self.generate(Loup,10) # gÃ©nÃ¨re un tableau de loup contenant 10% de loup
-        self.carte_entitee.extend(self.generate(Mouton,30)) # gÃ©nÃ¨re un tableau de moutons contenant 30% de moutons
-=======
         self.carte = self.generate(Herbe,100) # generation du monde à 100% d'herbe
         self.carte_entitee = self.generate(Loup,15) # génère un tableau de loup contenant 10% de loup
         self.carte_entitee.extend(self.generate(Mouton,30)) # génère un tableau de moutons contenant 30% de moutons
->>>>>>> Stashed changes
 
     def iteration(self):
         """
@@ -41,11 +35,7 @@ class Monde:
             if entites.pos==position:
                 Entites_En_Position.append(entites)
         """
-<<<<<<< Updated upstream
         Retourne une liste des entitee situÃ© en <position>. Retourner un tableau vide sinon
-=======
-        Retourne une liste des entites situé en <position>. Retourner un tableau vide sinon
->>>>>>> Stashed changes
         """
         return Entites_En_Position
 
