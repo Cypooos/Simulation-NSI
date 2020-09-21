@@ -12,9 +12,9 @@ class Monde:
 
     def __init__(self,dimentions=(20,20)):
         self.dimentions = dimentions
-        self.carte = self.generate(Herbe,100) # generation du monde à 100% d'herbe
-        self.carte_entitee = self.generate(Loup,10) # génère un tableau de loup contenant 10% de loup
-        self.carte_entitee.extend(self.generate(Mouton,30)) # génère un tableau de moutons contenant 30% de moutons
+        self.carte = self.generate(Herbe,100) # generation du monde Ã  100% d'herbe
+        self.carte_entitee = self.generate(Loup,10) # gÃ©nÃ¨re un tableau de loup contenant 10% de loup
+        self.carte_entitee.extend(self.generate(Mouton,30)) # gÃ©nÃ¨re un tableau de moutons contenant 30% de moutons
 
     def iteration(self):
         """
@@ -29,11 +29,16 @@ class Monde:
             x.action(self)
 
     def get_entites(self,position):
+
+        Entites_En_Position=[]
+        for entites in self.carte_entitee:
+            if entites.pos==position:
+                Entites_En_Position.append(entites)
         """
-        Retourne une liste des entitee situé en <position>. Retourner un tableau vide sinon
+        Retourne une liste des entitee situÃ© en <position>. Retourner un tableau vide sinon
         """
-        return []
-    
+        return Entites_En_Position
+
     def get_herbe(self,position):
         """
         Obtenir l'Herbe en <position>
@@ -42,15 +47,15 @@ class Monde:
 
     def generate(self,entite,pourcentage):
         """
-        Génère pourcentage de entité sur des positions de self.dimentions par self.dimentions
+        GÃ©nÃ¨re pourcentage de entitÃ© sur des positions de self.dimentions par self.dimentions
         """
         if entite == Herbe:
             return [[Herbe() for y in range(self.dimentions[1]) ]for x in range(self.dimentions[0])]
         else:
             return [entite((randint(0,5),randint(0,5))), entite((randint(0,5),randint(0,5))), entite((randint(0,5),randint(0,5)))] # Pour tester
 
-    
-    
+
+
 
 
 
