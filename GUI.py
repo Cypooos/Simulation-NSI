@@ -51,7 +51,7 @@ class PygameGui():
 
 
     def click(self,pos): # What to do on a click
-        pass
+        self.monde.iteration()
 
     def keys_down(self,keys): # Call if a key is clicked
         pass

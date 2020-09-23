@@ -19,7 +19,7 @@ class Creature():
     
     def getAround(self,entite_to_seek):
         """
-        Retourne la position des entités à coté de soi qui sont de type entite_to_seek
+        Retourne la position des entites a cote de soi qui sont de type entite_to_seek
         """
         for x in range(-1,1):
             for y in range(-1,1):

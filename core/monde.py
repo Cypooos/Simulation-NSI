@@ -7,7 +7,7 @@ from random import randint
 class Monde:
 
     """
-    La classe qui s'occupe de XXX
+    La classe qui s'occupe de la simulation
     """
 
     def __init__(self,dimentions=(20,20)):
@@ -22,37 +22,37 @@ class Monde:
         """
         # Action de l'herbe (grandir)
         for y in self.carte:
-            for x in y:
-                self.carte[y][x].action()
+            for element in y:
+                element.action()
         # Action des animaux
         for x in self.carte_entitee:
             x.action()
 
     def get_entites(self,position):
-
+        """
+        Retourne une liste des entitee situe en <position>. Retourner un tableau vide sinon
+        """
         Entites_En_Position=[]
         for entites in self.carte_entitee:
             if entites.pos==position:
                 Entites_En_Position.append(entites)
-        """
-        Retourne une liste des entitee situÃ© en <position>. Retourner un tableau vide sinon
-        """
         return Entites_En_Position
 
     def get_herbe(self,position):
         """
         Obtenir l'Herbe en <position>
         """
-        return self.carte[position[1]][position[0]]
+        print(position)
+        return self.carte[position[0]][position[1]]
 
     def generate(self,entite,pourcentage):
         """
-        GÃ©nÃ¨re pourcentage de entitÃ© sur des positions de self.dimentions par self.dimentions
+        Genere pourcentage de entite sur des positions de self.dimentions
         """
         if entite == Herbe:
             return [[Herbe(self) for y in range(self.dimentions[1]) ]for x in range(self.dimentions[0])]
         else:
-            return [entite((randint(0,self.dimentions[0]),randint(0,self.dimentions[1])),self) for x in range(self.dimentions[0]+self.dimentions[1]) if randint(0,100)<pourcentage]
+            return [entite((randint(0,self.dimentions[0]-1),randint(0,self.dimentions[1]-1)),self) for x in range(self.dimentions[0]+self.dimentions[1]) if randint(0,100)<pourcentage]
 
 
 

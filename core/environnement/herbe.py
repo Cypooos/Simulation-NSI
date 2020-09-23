@@ -10,7 +10,9 @@ class Herbe():
         self.monde = monde
 
     def getColor(self):
-        """Retourne la couleur de l'herbe pour PygameGUI"""
+        """
+        Retourne la couleur de l'herbe pour PygameGUI
+        """
         # 100% verte : rgb 66, 245, 72
         # 100% morte : rgb 161, 140, 72
         ratio = self.quantite / self.max_repousse
@@ -21,6 +23,9 @@ class Herbe():
         return (red,vert,bleu)
 
     def action(self): # L'herbe ne ce deplace pas, juste regenere.
+        """
+        Regeneration d'une quatite d'herbe.
+        """
         self.quantite += 1
         if self.quantite > self.max_repousse:self.quantite = self.max_repousse
         
