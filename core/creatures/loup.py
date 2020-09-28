@@ -20,6 +20,12 @@ class Loup(Creature):
             var = self.getAround(Mouton)
             self.pos[0] = var[0]
             self.pos[1] = var[1]
+        else:
+            self.pos[0]+=randint(-1,1)
+            self.pos[1]+=randint(-1,1)
+
+        self.pos[0] %= self.monde.dimentions[0]
+        self.pos[1] %= self.monde.dimentions[1]
 
 
 
