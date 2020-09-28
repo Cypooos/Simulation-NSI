@@ -30,6 +30,6 @@ class Creature():
                     continue # ne pas tester sa propre position
                 pos_to_seek = ((self.pos[0]+x )%self.monde.dimention[0],(self.pos[1]+y )%self.monde.dimention[1])
 
-                if isinstance(self.monde.get_entites(pos_to_seek), entite_to_seek):
+                if isinstance(self.monde.get_entite_at(pos_to_seek), entite_to_seek):
                     return x,y
         return None

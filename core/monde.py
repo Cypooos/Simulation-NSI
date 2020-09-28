@@ -30,7 +30,7 @@ class Monde:
             x.action()
 
 
-    def get_entites_at(self,position):
+    def get_entite_at(self,position):
         """
         Retourne une entitee situe en <position>. Retourner None sinon
         """
