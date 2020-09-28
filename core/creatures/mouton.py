@@ -22,7 +22,7 @@ class Mouton(Creature):
         Mange de l'herbe, bouge et essaie de ce reproduire.
         Il gagne herbe.quantite energie quand il mange et ce reproduit quand il a plus de can_reproduce_from
         """
-        herbe = self.monde.get_herbe(self.pos)
+        herbe = self.monde.get_herbe_at(self.pos)
         if herbe == None:
             self.energie-=1
         else:

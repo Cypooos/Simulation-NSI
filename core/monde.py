@@ -30,7 +30,7 @@ class Monde:
             x.action()
 
 
-    def get_entites(self,position):
+    def get_entites_at(self,position):
         """
         Retourne une entitee situe en <position>. Retourner None sinon
         """
@@ -40,7 +40,7 @@ class Monde:
                 Entites_En_Position = entites
         return Entites_En_Position
 
-    def get_herbe(self,position):
+    def get_herbe_at(self,position):
         """
         Obtenir l'Herbe en <position>
         """
