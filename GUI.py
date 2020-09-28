@@ -4,7 +4,7 @@ from core.creatures.loup import Loup
 
 class PygameGui():
 
-    speed = 0
+    speed = 0.4
 
     def __init__(self,monde,size=(300,300)):
         self.screen = None

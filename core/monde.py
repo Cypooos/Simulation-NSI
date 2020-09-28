@@ -29,14 +29,15 @@ class Monde:
             x.action()
 
 
-    def get_entite_at(self,position):
+    def get_entites_at(self,position):
         """
-        Retourne une entitee situe en <position>. Retourner None sinon
+        Retourne les entites situe en <position>. Retourner None sinon
         """
-        Entites_En_Position = None
+        Entites_En_Position = []
         for entites in self.carte_entitee:
             if entites.pos[0]==position[0] and entites.pos[1]==position[1]:
-                Entites_En_Position = entites
+                Entites_En_Position.append(entites)
+        if Entites_En_Position == []:return None 
         return Entites_En_Position
 
     def get_entites_of(self,type_):
