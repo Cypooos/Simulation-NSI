@@ -10,15 +10,9 @@ class Creature():
     def action(self):
         self.pos[0]+=1
 
-
-
-
-    def getColor(self): # la fonction getColor utillisÃƒÂ© par PygameGUI
-        if self.nom == "Loup":return (133, 133, 133)
-        if self.nom == "Mouton":return (251, 196, 255)
-
-
-
+    def getColor(self): # la fonction getColor utillise par PygameGUI
+        if self.nom == "Loup":return (133, 133, 133),0.5
+        if self.nom == "Mouton":return (251, 196, 255),0.4
 
     def getAround(self,entite_to_seek):
         """
