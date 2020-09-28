@@ -1,9 +1,10 @@
 import pygame
 from core.creatures.mouton import Mouton
+from core.creatures.loup import Loup
 
 class PygameGui():
 
-    speed = 0.5
+    speed = 0
 
     def __init__(self,monde,size=(300,300)):
         self.screen = None
@@ -52,14 +53,19 @@ class PygameGui():
                 if event.type == pygame.QUIT:self.quit();break
                 elif event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
-                    self.click(pos)
+                    if event.button == 1:self.left_click(pos)
+                    if event.button == 3:self.right_click(pos)
                 elif event.type == pygame.KEYDOWN:
                     self.keys_down(event.keys)
                 
 
 
-    def click(self,pos): # What to do on a click
-        self.monde.carte_entitee.append(Mouton((pos[0]//self.monde.dimentions[0],pos[1]//self.monde.dimentions[1]),self.monde))
+    def left_click(self,pos): # What to do on a click
+        self.monde.carte_entitee.append(Mouton([(pos[0]*self.monde.dimentions[0])//self.size[0],(pos[1]*self.monde.dimentions[1])//self.size[1]],self.monde))
+
+    def right_click(self,pos): # What to do on a click
+        self.monde.carte_entitee.append(Loup([(pos[0]*self.monde.dimentions[0])//self.size[0],(pos[1]*self.monde.dimentions[1])//self.size[1]],self.monde))
+
 
     def keys_down(self,keys): # Call if a key is clicked
         pass

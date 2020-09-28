@@ -39,11 +39,11 @@ class Monde:
                 Entites_En_Position = entites
         return Entites_En_Position
 
-    def get_entites_of(self,type):
+    def get_entites_of(self,type_):
         """
         Retourne les entites de type <type>. Retourner None sinon
         """
-        raise NotImplementedError
+        return [x for x in self.carte_entitee if isinstance(x,type_)]
 
     def get_herbe_at(self,position):
         """
