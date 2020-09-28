@@ -29,4 +29,7 @@ class Mouton(Creature):
             self.energie += herbe.quantite
             herbe.dead()
         self.pos[0]+=1
-        self.getAround(Herbe)
+
+        self.pos[0] %= self.monde.dimentions[0]
+        self.pos[1] %= self.monde.dimentions[1]
+        #self.getAround(Herbe)
