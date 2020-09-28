@@ -20,6 +20,7 @@ class Monde:
         """
         Execute une iteration du monde.
         """
+        self.carte_entitee_buf = []
         # Action de l'herbe (grandir)
         for y in self.carte:
             for element in y:
@@ -27,6 +28,7 @@ class Monde:
         # Action des animaux
         for x in self.carte_entitee:
             x.action()
+        self.carte_entitee.extend(self.carte_entitee_buf)
 
 
     def get_entites_at(self,position):

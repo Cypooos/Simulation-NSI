@@ -6,31 +6,36 @@ from random import randint
 class Mouton(Creature):
 
     nom = "Mouton"
-    taux_reproduction = 4
+    taux_reproduction = 80
     start_energie = 20
-    lose_energie = (5,20)
 
 
-    def __init__(self,position,monde):
+    def __init__(self,position,monde,can_move=True):
         self.energie = randint(self.start_energie,self.start_energie*2)
         self.pos = position
         self.monde = monde
+        self.can_move = can_move
 
 
     def action(self):
         """
         Mange de l'herbe, bouge et essaie de ce reproduire.
-        Il gagne herbe.quantite energie quand il mange et ce reproduit quand il a plus de can_reproduce_from
+        Il gagne herbe.quantite energie quand il mange et ce reproduit quand il a assez d'energie
         """
-        
-        self.energie -= randint(self.lose_energie[0],self.lose_energie[1])
+
+        if not self.can_move:
+            print("I can't get uppp")
+            self.can_move = True
+            return
         if self.energie <= 0:self.dead() # mourrir
+
 
         herbe = self.monde.get_herbe_at(self.pos)
         if herbe == None:self.energie-=1
         else:
             self.energie += herbe.quantite
             herbe.dead()
+
         i=randint(0,1)
         if i==0:
             self.pos[0]+=randint(-1,1)
@@ -40,3 +45,4 @@ class Mouton(Creature):
         self.pos[0] %= self.monde.dimentions[0]
         self.pos[1] %= self.monde.dimentions[1]
         #self.getAround(Herbe)
+        

@@ -47,7 +47,7 @@ class PygameGui():
                 self.monde.iteration()
                 exec_ = 0
 
-            self.draw()
+                self.draw()
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:self.quit();break
