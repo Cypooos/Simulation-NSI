@@ -1,7 +1,9 @@
 import pygame
-
+from core.creatures.mouton import Mouton
 
 class PygameGui():
+
+    speed = 0.5
 
     def __init__(self,monde,size=(300,300)):
         self.screen = None
@@ -23,7 +25,7 @@ class PygameGui():
         for creature in self.monde.carte_entitee:
             pixel_pos_X = int(creature.pos[0]*square_tile_sizeX+square_tile_sizeX/2) # ajout de 0.5 pour obtenir le centre de la case
             pixel_pos_Y = int(creature.pos[1]*square_tile_sizeY+square_tile_sizeY/2) # ajout de 0.5 pour obtenir le centre de la case
-            pygame.draw.circle(self.screen, creature.getColor(), (pixel_pos_X,pixel_pos_Y), int(min(square_tile_sizeX,square_tile_sizeY)*0.4))
+            pygame.draw.circle(self.screen, creature.getColor()[0], (pixel_pos_X,pixel_pos_Y), int(min(square_tile_sizeX,square_tile_sizeY)*creature.getColor()[1]))
         pygame.display.flip()
 
     def start(self): # start the main loop
@@ -34,9 +36,15 @@ class PygameGui():
     def __mainLoop(self): # the main loop 
         self.running = True
         clock = pygame.time.Clock()
+        exec_= 0
 
         while self.running:
             self.dt = clock.tick()/1000 # Calculation du delaTime utile pour les transitions
+            exec_ += self.dt
+
+            if exec_ > self.speed: # Execution automatique d'une ietration tout les self.speed secondes
+                self.monde.iteration()
+                exec_ = 0
 
             self.draw()
 
@@ -51,7 +59,7 @@ class PygameGui():
 
 
     def click(self,pos): # What to do on a click
-        self.monde.iteration()
+        self.monde.carte_entitee.append(Mouton((pos[0]//self.monde.dimentions[0],pos[1]//self.monde.dimentions[1]),self.monde))
 
     def keys_down(self,keys): # Call if a key is clicked
         pass
