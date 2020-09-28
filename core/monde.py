@@ -11,9 +11,9 @@ class Monde:
 
     def __init__(self,dimentions=(20,20)):
         self.dimentions = dimentions
-        self.carte = self.generate(Herbe,100) # generation du monde Ã  100% d'herbe
-        self.carte_entitee = self.generate(Loup,15) # gÃ©nÃ¨re un tableau de loup contenant 10% de loup
-        self.carte_entitee.extend(self.generate(Mouton,30)) # gÃ©nÃ¨re un tableau de moutons contenant 30% de moutons
+        self.carte = self.generate(Herbe,100) # generation du monde a 100% d'herbe
+        self.carte_entitee = self.generate(Loup,15) # genere un tableau de loup contenant 10% de loup
+        self.carte_entitee.extend(self.generate(Mouton,30)) # genere un tableau de moutons contenant 30% de moutons
 
     def iteration(self):
 
