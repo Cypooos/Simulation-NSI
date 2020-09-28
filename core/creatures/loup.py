@@ -1,5 +1,7 @@
 from core.creatures.creature import Creature
+from core.creatures.mouton import Mouton
 from random import randint
+
 
 class Loup(Creature):
 
@@ -14,5 +16,14 @@ class Loup(Creature):
 
 
     def action(self):
-        pass
+        if self.getAround(Mouton) != None:
+            var = self.getAround(Mouton)
+            self.pos[0] = var[0]
+            self.pos[1] = var[1]
+
+
+
+
+
+
 

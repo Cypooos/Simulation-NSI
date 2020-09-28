@@ -1,4 +1,5 @@
 from core.creatures.creature import Creature
+from core.environnement.herbe import Herbe
 from random import randint
 
 
@@ -8,7 +9,7 @@ class Mouton(Creature):
     taux_reproduction = 4
     start_energie = 20
     lose_energi = (5,20)
-    can
+
 
     def __init__(self,position,monde):
         self.energie = randint(1,self.start_energie*2)
@@ -22,7 +23,10 @@ class Mouton(Creature):
         Il gagne herbe.quantite energie quand il mange et ce reproduit quand il a plus de can_reproduce_from
         """
         herbe = self.monde.get_herbe(self.pos)
-        if herbe == None: self.energie-=1
+        if herbe == None:
+            self.energie-=1
         else:
             self.energie += herbe.quantite
             herbe.dead()
+        self.pos[0]+=1
+        self.getAround(Herbe)
