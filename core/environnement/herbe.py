@@ -28,6 +28,7 @@ class Herbe():
         """
         self.quantite += 1
         if self.quantite > self.max_repousse:self.quantite = self.max_repousse
-        
+
+
     def dead(self):
         self.quantite = 0
