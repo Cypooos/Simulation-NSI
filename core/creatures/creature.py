@@ -29,7 +29,10 @@ class Creature():
                     return pos_to_seek
         return None
 
+
     def dead(self):
         print("Je meuuuurs et je suis",self.nom)
         for i,x in enumerate(self.monde.carte_entitee):
-            if x == self:del self.monde.carte_entitee[i];break
+            if x == self:
+                del self.monde.carte_entitee[i]
+                break

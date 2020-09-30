@@ -39,7 +39,7 @@ class Monde:
         for entites in self.carte_entitee:
             if entites.pos[0]==position[0] and entites.pos[1]==position[1]:
                 Entites_En_Position.append(entites)
-        if Entites_En_Position == []:return None 
+        if Entites_En_Position == []:return None
         return Entites_En_Position
 
     def get_entites_of(self,type_):

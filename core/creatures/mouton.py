@@ -27,6 +27,8 @@ class Mouton(Creature):
             print("I can't get uppp")
             self.can_move = True
             return
+
+        self.energie -= 1
         if self.energie <= 0:self.dead() # mourrir
 
 
@@ -45,4 +47,3 @@ class Mouton(Creature):
         self.pos[0] %= self.monde.dimentions[0]
         self.pos[1] %= self.monde.dimentions[1]
         #self.getAround(Herbe)
-        
