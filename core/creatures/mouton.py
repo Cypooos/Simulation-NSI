@@ -28,9 +28,8 @@ class Mouton(Creature):
             self.can_move = True
             return
 
-        self.energie -= 1
+        self.energie-=1 #perte d'energie par tour
         if self.energie <= 0:self.dead() # mourrir
-
 
         herbe = self.monde.get_herbe_at(self.pos)
         if herbe == None:self.energie-=1
