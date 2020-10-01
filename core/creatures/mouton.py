@@ -1,8 +1,8 @@
 """
-Problème de déplacement des moutons (En Cours de Résolution: Aurélien)
+ProblÃ¨me de dÃ©placement des moutons (En Cours de RÃ©solution: AurÃ©lien)
 
-Je pense que ça vient de la nouvelle définitio de Marc. On verra ça ensemble demain
-mais je vais commencer à y réfléchir.
+Je pense que Ã§a vient de la nouvelle dÃ©finitio de Marc. On verra Ã§a ensemble demain
+mais je vais commencer Ã  y rÃ©flÃ©chir.
 
 """
 
