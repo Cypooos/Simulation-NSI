@@ -1,5 +1,9 @@
 """
-Problème de déplacement des moutons (En Cours de Résolution: Aurélien
+Problème de déplacement des moutons (En Cours de Résolution: Aurélien)
+
+Je pense que ça vient de la nouvelle définitio de Marc. On verra ça ensemble demain
+mais je vais commencer à y réfléchir.
+
 """
 
 from core.creatures.creature import Creature
