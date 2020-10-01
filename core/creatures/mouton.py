@@ -39,11 +39,6 @@ class Mouton(Creature):
         self.energie-=1 #perte d'energie par tour
         if self.energie <= 0:self.dead() # mourrir
 
-        herbe = self.monde.get_herbe_at(self.pos)
-        if herbe == None:self.energie-=1
-        else:
-            self.energie += herbe.quantite
-            herbe.dead()
 
         if self.getAround_Herbe(Herbe)!= None:
             var = self.getAround_Herbe(Herbe)
@@ -52,6 +47,12 @@ class Mouton(Creature):
 
         self.pos[0] %= self.monde.dimentions[0]
         self.pos[1] %= self.monde.dimentions[1]
+
+        herbe = self.monde.get_herbe_at(self.pos)
+        if herbe == None:self.energie-=1
+        else:
+            self.energie += herbe.quantite
+            herbe.dead()
 
 
 

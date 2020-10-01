@@ -56,8 +56,6 @@ class Creature():
                 if self.monde.get_herbe_at(pos_to_seek) == herbe_max[0]:
                     return pos_to_seek
 
-
-
     def dead(self):
         for i,x in enumerate(self.monde.carte_entitee):
             if x == self:
