@@ -4,7 +4,7 @@ from core.creatures.loup import Loup
 
 class PygameGui():
 
-    speed = 0.2
+    speed = 0.9
 
     def __init__(self,monde,size=(300,300)):
         self.screen = None
@@ -22,7 +22,7 @@ class PygameGui():
             for y,element in enumerate(ligne):
                 pygame.draw.rect(self.screen,element.getColor(),(square_tile_sizeX*x, square_tile_sizeY*y, square_tile_sizeX, square_tile_sizeY))
 
-        # dessiner les créatures
+        # dessiner les crÃ©atures
         for creature in self.monde.carte_entitee:
             pixel_pos_X = int(creature.pos[0]*square_tile_sizeX+square_tile_sizeX/2) # ajout de 0.5 pour obtenir le centre de la case
             pixel_pos_Y = int(creature.pos[1]*square_tile_sizeY+square_tile_sizeY/2) # ajout de 0.5 pour obtenir le centre de la case
@@ -34,7 +34,7 @@ class PygameGui():
         pygame.display.set_caption('Simulation')
         self.__mainLoop()
 
-    def __mainLoop(self): # the main loop 
+    def __mainLoop(self): # the main loop
         self.running = True
         clock = pygame.time.Clock()
         exec_= 0
@@ -57,7 +57,7 @@ class PygameGui():
                     if event.button == 3:self.right_click(pos)
                 elif event.type == pygame.KEYDOWN:
                     self.keys_down(event.keys)
-                
+
 
 
     def left_click(self,pos): # What to do on a click

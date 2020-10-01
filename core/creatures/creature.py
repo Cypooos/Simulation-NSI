@@ -42,13 +42,15 @@ class Creature():
                 if (self.monde.get_herbe_at(pos_to_seek)):
                     liste.append(self.monde.get_herbe_at(pos_to_seek))
 
-                herbe_max = sorted(liste, key=lambda entite_to_seek: entite_to_seek.getQuantite(), reverse=True)
-                new_pos = herbe_max[0]
-                if self.monde.get_herbe_at(pos_to_seek) == new_pos:
+        herbe_max = sorted(liste, key=lambda entite_to_seek: entite_to_seek.getQuantite(), reverse=True)
+        for x in range(-1,2):
+            for y in range(-1,2):
+                if x==y==0:continue
+                pos_to_seek = [(self.pos[0]+x )%self.monde.dimentions[0],(self.pos[1]+y )%self.monde.dimentions[1]]
+
+                if self.monde.get_herbe_at(pos_to_seek) == herbe_max[0]:
                     print(pos_to_seek)
                     return pos_to_seek
-        return None
-
 
 
 
