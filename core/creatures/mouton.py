@@ -1,3 +1,7 @@
+"""
+Problème de déplacement des moutons (En Cours de Résolution: Aurélien
+"""
+
 from core.creatures.creature import Creature
 from core.environnement.herbe import Herbe
 from random import randint
