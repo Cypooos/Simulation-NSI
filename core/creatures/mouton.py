@@ -37,12 +37,13 @@ class Mouton(Creature):
             self.energie += herbe.quantite
             herbe.dead()
 
-        i=randint(0,1)
-        if i==0:
-            self.pos[0]+=randint(-1,1)
-        else:
-            self.pos[1]+=randint(-1,1)
+        if self.getAround_Herbe(Herbe)!= None:
+            var = self.getAround_Herbe(Herbe)
+            self.pos[0] = var[0]
+            self.pos[1] = var[1]
 
         self.pos[0] %= self.monde.dimentions[0]
         self.pos[1] %= self.monde.dimentions[1]
-        #self.getAround(Herbe)
+
+
+

@@ -25,13 +25,34 @@ class Creature():
 
                 if  self.monde.get_entites_at(pos_to_seek) == None:continue
                 if any([isinstance(x, entite_to_seek) for x in self.monde.get_entites_at(pos_to_seek)]):
-                    print("YESS")
                     return pos_to_seek
         return None
 
 
+    def getAround_Herbe(self,entite_to_seek):
+        """
+        Retourne la position des entites a cote de soi qui sont de type entite_to_seek
+        """
+        liste=[]
+        for x in range(-1,2):
+            for y in range(-1,2):
+                if x==y==0:continue # ne pas tester sa propre position
+                pos_to_seek = [(self.pos[0]+x )%self.monde.dimentions[0],(self.pos[1]+y )%self.monde.dimentions[1]]
+
+                if (self.monde.get_herbe_at(pos_to_seek)):
+                    liste.append(self.monde.get_herbe_at(pos_to_seek))
+
+                herbe_max = sorted(liste, key=lambda entite_to_seek: entite_to_seek.getQuantite(), reverse=True)
+                new_pos = herbe_max[0]
+                if self.monde.get_herbe_at(pos_to_seek) == new_pos:
+                    print(pos_to_seek)
+                    return pos_to_seek
+        return None
+
+
+
+
     def dead(self):
-        print("Je meuuuurs et je suis",self.nom)
         for i,x in enumerate(self.monde.carte_entitee):
             if x == self:
                 del self.monde.carte_entitee[i]

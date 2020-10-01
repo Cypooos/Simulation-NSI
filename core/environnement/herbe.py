@@ -22,6 +22,9 @@ class Herbe():
         bleu = 72*ratio+72*(1-ratio)
         return (red,vert,bleu)
 
+    def getQuantite(self):
+        return self.quantite
+
     def action(self): # L'herbe ne ce deplace pas, juste regenere.
         """
         Regeneration d'une quatite d'herbe.
