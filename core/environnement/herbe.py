@@ -3,7 +3,7 @@ from random import randint
 class Herbe():
 
     nom = "Herbe"
-    max_repousse = 300
+    max_repousse = 100
 
     def __init__(self,monde):
         self.quantite = randint(0,self.max_repousse)

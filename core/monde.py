@@ -12,7 +12,7 @@ class Monde:
     def __init__(self,dimentions=(20,20)):
         self.dimentions = dimentions
         self.carte = self.generate(Herbe,100) # generation du monde a 100% d'herbe
-        self.carte_entitee = self.generate(Loup,15) # genere un tableau de loup contenant 10% de loup
+        self.carte_entitee = self.generate(Loup,0) # genere un tableau de loup contenant 10% de loup
         self.carte_entitee.extend(self.generate(Mouton,30)) # genere un tableau de moutons contenant 30% de moutons
 
     def iteration(self):
@@ -21,6 +21,10 @@ class Monde:
         Execute une iteration du monde.
         """
         self.carte_entitee_buf = []
+
+        for x in self.carte_entitee:
+            if self.carte_entitee.count(x) > 1: self.carte_entitee.remove(x)
+
         # Action de l'herbe (grandir)
         for y in self.carte:
             for element in y:
@@ -62,7 +66,6 @@ class Monde:
             return [[Herbe(self) for y in range(self.dimentions[1]) ]for x in range(self.dimentions[0])]
         else:
             return [entite([randint(0,self.dimentions[0]-1),randint(0,self.dimentions[1]-1)],self) for x in range(self.dimentions[0]+self.dimentions[1]) if randint(0,100)<pourcentage]
-
 
 
 

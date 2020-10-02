@@ -29,9 +29,9 @@ class Creature():
         return None
 
 
-    def getAround_Herbe(self,entite_to_seek):
+    def getAround_Herbe(self):
         """
-        Retourne la position des entites a cote de soi qui sont de type entite_to_seek
+        Retourne la position des herbes à cote de soi.
         """
         liste=[]
         for x in range(-1,2):
@@ -57,6 +57,7 @@ class Creature():
                     return pos_to_seek
 
     def dead(self):
+        print("I'm ded and I am",self.nom)
         for i,x in enumerate(self.monde.carte_entitee):
             if x == self:
                 del self.monde.carte_entitee[i]
