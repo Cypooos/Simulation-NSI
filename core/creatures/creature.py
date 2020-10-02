@@ -11,8 +11,8 @@ class Creature():
         self.pos[0]+=1
 
     def getColor(self): # la fonction getColor utillise par PygameGUI
-        if self.nom == "Loup":return (133, 133, 133),0.5
-        if self.nom == "Mouton":return (251, 196, 255),0.4
+        if self.nom == "Loup":return (234,227,226),0.5
+        if self.nom == "Mouton":return (255,88,149),0.4
 
     def getAround(self,entite_to_seek):
         """
@@ -57,7 +57,6 @@ class Creature():
                     return pos_to_seek
 
     def dead(self):
-        print("I'm ded and I am",self.nom)
         for i,x in enumerate(self.monde.carte_entitee):
             if x == self:
                 del self.monde.carte_entitee[i]
