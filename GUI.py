@@ -4,7 +4,7 @@ from core.creatures.loup import Loup
 
 class PygameGui():
 
-    speed = 0.2
+    speed = 0
 
     def __init__(self,monde,size=(300,300)):
         self.screen = None
@@ -48,16 +48,21 @@ class PygameGui():
                 exec_ = 0
 
                 self.draw()
+            
+            pos = pygame.mouse.get_pos()
 
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:self.quit();break
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    pos = pygame.mouse.get_pos()
-                    if event.button == 1:self.left_click(pos)
-                    if event.button == 3:self.right_click(pos)
-                elif event.type == pygame.KEYDOWN:
-                    self.keys_down(event.keys)
-
+                try:
+                    if event.type == pygame.QUIT:self.quit();break
+                    elif event.type == pygame.MOUSEBUTTONDOWN:
+                        if event.button == 1:self.left_click(pos)
+                        if event.button == 3:self.right_click(pos)
+                    elif event.type == pygame.KEYDOWN:self.keys_down(event.keys)
+                except:pass
+            
+            keys = pygame.key.get_pressed() 
+            if keys[pygame.K_l]:self.left_click(pos)
+            if keys[pygame.K_r]:self.right_click(pos)
 
 
     def left_click(self,pos): # What to do on a click
