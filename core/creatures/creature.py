@@ -1,4 +1,4 @@
-
+﻿
 class Creature():
 
     nom = "Sans nom"
@@ -31,7 +31,7 @@ class Creature():
 
     def getAround_Herbe(self):
         """
-        Retourne la position des herbes à cote de soi.
+        Retourne la position des herbes Ã  cote de soi.
         """
         liste=[]
         for x in range(-1,2):

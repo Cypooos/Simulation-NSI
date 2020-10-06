@@ -1,4 +1,4 @@
-import pygame
+﻿import pygame
 from core.creatures.mouton import Mouton
 from core.creatures.loup import Loup
 
@@ -22,7 +22,7 @@ class PygameGui():
             for y,element in enumerate(ligne):
                 pygame.draw.rect(self.screen,element.getColor(),(square_tile_sizeX*x, square_tile_sizeY*y, square_tile_sizeX, square_tile_sizeY))
 
-        # dessiner les crÃ©atures
+        # dessiner les crÃƒÂ©atures
         for creature in self.monde.carte_entitee:
             pixel_pos_X = int(creature.pos[0]*square_tile_sizeX+square_tile_sizeX/2) # ajout de 0.5 pour obtenir le centre de la case
             pixel_pos_Y = int(creature.pos[1]*square_tile_sizeY+square_tile_sizeY/2) # ajout de 0.5 pour obtenir le centre de la case
@@ -48,7 +48,7 @@ class PygameGui():
                 exec_ = 0
 
                 self.draw()
-            
+
             pos = pygame.mouse.get_pos()
 
             for event in pygame.event.get():
@@ -59,8 +59,8 @@ class PygameGui():
                         if event.button == 3:self.right_click(pos)
                     elif event.type == pygame.KEYDOWN:self.keys_down(event.keys)
                 except:pass
-            
-            keys = pygame.key.get_pressed() 
+
+            keys = pygame.key.get_pressed()
             if keys[pygame.K_l]:self.left_click(pos)
             if keys[pygame.K_r]:self.right_click(pos)
 

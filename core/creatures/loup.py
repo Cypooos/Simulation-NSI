@@ -1,4 +1,4 @@
-from core.creatures.creature import Creature
+﻿from core.creatures.creature import Creature
 from core.creatures.mouton import Mouton
 from random import randint
 
@@ -41,7 +41,7 @@ class Loup(Creature):
         self.pos[0] %= self.monde.dimentions[0]
         self.pos[1] %= self.monde.dimentions[1]
 
-        
+
         if self.energie > self.reproduction_energie:
             self.energie //= 2
             self.monde.carte_entitee_buf.append(Loup([(self.pos[0]+randint(-1,1))%self.monde.dimentions[0],(self.pos[1]+randint(-1,1))%self.monde.dimentions[1]],self.monde,self.energie))

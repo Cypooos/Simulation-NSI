@@ -1,9 +1,9 @@
-import copy
+﻿import copy
 """
-Probleme de deplacement des moutons (En Cours de RÃ©solution: AurÃ©lien)
+Probleme de deplacement des moutons (En Cours de RÃƒÂ©solution: AurÃƒÂ©lien)
 
-Je pense que Ã§a vient de la nouvelle dÃ©finitio de Marc. On verra Ã§a ensemble demain
-mais je vais commencer Ã  y rÃ©flÃ©chir.
+Je pense que ÃƒÂ§a vient de la nouvelle dÃƒÂ©finitio de Marc. On verra ÃƒÂ§a ensemble demain
+mais je vais commencer ÃƒÂ  y rÃƒÂ©flÃƒÂ©chir.
 
 """
 
