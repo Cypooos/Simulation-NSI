@@ -1,10 +1,36 @@
-﻿from core.creatures.creature import Creature # importation des modules necessaires
+﻿################################################ IMPORTATIONS DES MODULES NECESSAIRES ################################################
+
+from core.creatures.creature import Creature # importation des modules necessaires
 from core.creatures.mouton import Mouton
 from random import randint
 
+#######################################################################################################################################
 
-class Loup(Creature):  #creation de la classe Loup qui herite de la classe Creature
+################################################# CREATION DE LA CLASSE LOUP ##########################################################
 
+#Création de la classe Loup qui hérite de la classe Creature
+class Loup(Creature):
+    """
+    La classe Loup est la classe qui s'occupe de la gestion des loups.
+
+    Instances de classe:
+        nom: nom permettant d'appeler les loups dans les autres fichiers.
+        reproduction_energie: valeur énergétique nécessaire à un loup pour pouvoir se reproduire.
+        start_energie: tuple de deux valeurs entre lesquelles on chosira un entier aléatoire qui donnera l'énergie
+        d'un loup au départ.
+        max_energie: le maximum d'énergie qu'un loup peut avoir.
+        lose_energie: l'énergie que perd un loup à chaque itération.
+
+    Attributs :
+        energie : energie d'un loup au départ.
+        pos: tuple contenant la position d'un loup au départ
+        monde: valeur contenant le pourcentage de loups dans le monde (définie dans la classe monde).
+
+    Methodes :
+        action(): crée toutes les actions des loups (nourriture, reproduction, déplacement...)
+    """
+
+    # Création des instances de classe de Mouton
     nom = "Loup"
     reproduction_energie = 250
     start_energie = (80,130)
@@ -12,41 +38,59 @@ class Loup(Creature):  #creation de la classe Loup qui herite de la classe Creat
     max_energie = 300
     lose_energie = (4,8)
 
-    def __init__(self,position,monde,energie=None): # initialisation des attributs de la class Loup
+############################ CREATION DE LA FONCTION D'INITIALISATION DE LA CLASSE LOUP AVEC SES ATTRIBUTS ############################
+
+    # Initialisation des attributs de la class Loup
+    def __init__(self,position,monde,energie=None):
         self.energie = energie
         if self.energie == None:self.energie = randint(self.start_energie[0],self.start_energie[1])
         self.pos = position
         self.monde = monde
 
+#######################################################################################################################################
 
-    def action(self):  # methode action appeler danss monde
+############################################ DEFINITION DE LA METHODE DE LA CLASSE LOUP ###############################################
+    #Méthode gérant les actions des moutons, appellée dans monde.py
+    def action(self):
+        """
+        Méthode permettant au loup de manger de l'herbe, bouger et essayer de se reproduire.
+        """
 
-        if self.getAround(Mouton) != None: # si une position est retourné par la fonction
+        # Si une position est retournée par la fonction
+        if self.getAround(Mouton) != None:
             var = self.getAround(Mouton)
             self.pos[0] = var[0]
             self.pos[1] = var[1]
 
-            mouton = [x for x in self.monde.get_entites_at(var) if isinstance(x,Mouton)][0] # si un mouton se trouve sur la position de self, mouton devient l'entitee en question
+            # Si un mouton se trouve sur la position de self, mouton devient l'entitée en question
+            mouton = [x for x in self.monde.get_entites_at(var) if isinstance(x,Mouton)][0]
             mouton.dead()
             self.energie += randint(self.gain_energie[0],self.gain_energie[1])
-        else: # sinon se deplacer aléatoirement
+
+        # Sinon se déplacer aléatoirement
+        else:
             self.pos[0]+=randint(-1,1)
             self.pos[1]+=randint(-1,1)
 
-        if self.energie > self.max_energie:self.energie = self.max_energie #si self.energie depace max_energie, self.energie prend la valeur de max_energie
+        #Si self.energie supérieur à max_energie, alors self.energie prend la valeur de max_energie
+        if self.energie > self.max_energie:self.energie = self.max_energie
 
         self.energie-=randint(self.lose_energie[0],self.lose_energie[1])
-        if self.energie <= 0:self.dead() # condition qui apelle la fonction de mort
+
+        # Condition qui apelle la fonction de mort
+        if self.energie <= 0:self.dead()
 
         self.pos[0] %= self.monde.dimentions[0]
         self.pos[1] %= self.monde.dimentions[1]
 
-
-        if self.energie > self.reproduction_energie: # condition pour la reproduction, si self.energie depace reproduction_energie
+        # Condition pour la reproduction, si self.energie est supérieure à reproduction_energie
+        if self.energie > self.reproduction_energie:
             self.energie //= 2
             self.monde.carte_entitee_buf.append(Loup([(self.pos[0]+randint(-1,1))%self.monde.dimentions[0],(self.pos[1]+randint(-1,1))%self.monde.dimentions[1]],self.monde,self.energie))
 
+#######################################################################################################################################
 
+#######################################################################################################################################
 
 
 
