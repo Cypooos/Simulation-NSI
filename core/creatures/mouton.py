@@ -1,7 +1,4 @@
-﻿import copy # importation des modules necessaires
-
-
-from core.creatures.creature import Creature #import de la class Creature pour héritage
+﻿from core.creatures.creature import Creature #import de la class Creature pour héritage
 from core.environnement.herbe import Herbe  # autre import necessaire
 from random import randint
 
@@ -32,10 +29,10 @@ class Mouton(Creature): #creation de la classe Mouton qui herite de la classe Cr
         self.energie += herbe.quantite
         herbe.dead()
 
-        if self.energie > self.max_energie:self.energie = self.max_energie
+        if self.energie > self.max_energie:self.energie = self.max_energie #si self.energie depace max_energie, self.energie prend la valeur de max_energie
 
         self.energie-=randint(self.lose_energie[0],self.lose_energie[1])
-        if self.energie <= 0:self.dead() # mourrir
+        if self.energie <= 0:self.dead() # condition qui apelle la fonction de mort
 
         var = self.getAround_Herbe()
         self.pos[0] = var[0]
@@ -44,7 +41,7 @@ class Mouton(Creature): #creation de la classe Mouton qui herite de la classe Cr
         self.pos[0] %= self.monde.dimentions[0]
         self.pos[1] %= self.monde.dimentions[1]
 
-        if self.energie > self.reproduction_energie:
+        if self.energie > self.reproduction_energie: # condition pour la reproduction, si self.energie depace reproduction_energie
             self.energie //= 2
             self.monde.carte_entitee_buf.append(Mouton([(self.pos[0]+randint(-1,1))%self.monde.dimentions[0],(self.pos[1]+randint(-1,1))%self.monde.dimentions[1]],self.monde,self.energie))
 
