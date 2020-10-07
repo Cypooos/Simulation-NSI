@@ -15,7 +15,7 @@ class Monde:
         self.carte_entitee = self.generate(Loup,10) # genere un tableau de loup contenant 10% de loup
         self.carte_entitee.extend(self.generate(Mouton,30)) # genere un tableau de moutons contenant 30% de moutons
 
-    def iteration(self):
+    def iteration(self): # fonction iteraction lancer automatiquement dans GUI.py ou chaque entite lance son action
 
         """
         Execute une iteration du monde.
@@ -35,7 +35,7 @@ class Monde:
         self.carte_entitee.extend(self.carte_entitee_buf)
 
 
-    def get_entites_at(self,position):
+    def get_entites_at(self,position): # Fonction qui retourne une liste des entitees en position demander en parametre
         """
         Retourne les entites situe en <position>. Retourner None sinon
         """
@@ -46,19 +46,19 @@ class Monde:
         if Entites_En_Position == []:return None
         return Entites_En_Position
 
-    def get_entites_of(self,type_):
+    def get_entites_of(self,type_):# retourne une liste de toute les entitee d'une class
         """
         Retourne les entites de type <type>. Retourner None sinon
         """
         return [x for x in self.carte_entitee if isinstance(x,type_)]
 
-    def get_herbe_at(self,position):
+    def get_herbe_at(self,position): # retourne une liste contenant la position de chaque herbe
         """
         Obtenir l'Herbe en <position>
         """
         return self.carte[position[0]][position[1]]
 
-    def generate(self,entite,pourcentage):
+    def generate(self,entite,pourcentage): # genere toute les entitees ( herbe, mouton, loup)
         """
         Genere pourcentage de entite sur des positions de self.dimentions
         """
