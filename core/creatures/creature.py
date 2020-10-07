@@ -1,9 +1,9 @@
 ﻿
-class Creature():
+class Creature(): #creation de la class Creature
 
     nom = "Sans nom"
 
-    def __init__(self,position,monde):
+    def __init__(self,position,monde): # initialisation des attributs de la class Creature
         self.pos=position
         self.monde = monde
 
@@ -23,8 +23,8 @@ class Creature():
                 if x==y==0:continue # ne pas tester sa propre position
                 pos_to_seek = ((self.pos[0]+x )%self.monde.dimentions[0],(self.pos[1]+y )%self.monde.dimentions[1])
 
-                if  self.monde.get_entites_at(pos_to_seek) == None:continue
-                if any([isinstance(x, entite_to_seek) for x in self.monde.get_entites_at(pos_to_seek)]):
+                if  self.monde.get_entites_at(pos_to_seek) == None:continue # si il n'y a pas d'entitee a la position continuer
+                if any([isinstance(x, entite_to_seek) for x in self.monde.get_entites_at(pos_to_seek)]): #si il y a une entitee dans la liste retourner par la fonction get_entites_at
                     return pos_to_seek # retour de la position de l'entitee en question si c'est un mouton
         return None
 
@@ -44,16 +44,16 @@ class Creature():
 
                 pos_to_seek = [(self.pos[0]+x )%self.monde.dimentions[0],(self.pos[1]+y )%self.monde.dimentions[1]]
 
-                if (self.monde.get_herbe_at(pos_to_seek)):
+                if (self.monde.get_herbe_at(pos_to_seek)): # si il y a de des blocs d'herbe, ajout de l'objet dans la liste liste
                     liste.append(self.monde.get_herbe_at(pos_to_seek))
 
-        herbe_max = sorted(liste, key=lambda entite_to_seek: entite_to_seek.getQuantite(), reverse=True)
+        herbe_max = sorted(liste, key=lambda entite_to_seek: entite_to_seek.getQuantite(), reverse=True) # trie de la liste en fonction de la quantite
 
         for x in range(-1,2):
             for y in range(-1,2):
-                if x==y==0:continue
+                if x==y==0:continue # ne pas tester sa propre position
                 pos_to_seek = [(self.pos[0]+x )%self.monde.dimentions[0],(self.pos[1]+y )%self.monde.dimentions[1]]
-                if self.monde.get_herbe_at(pos_to_seek) == herbe_max[0]:
+                if self.monde.get_herbe_at(pos_to_seek) == herbe_max[0]: #si l'objet est le meme que l'objet à l'indice 0 dans herbe_max
                     return pos_to_seek # retour de la position du bloc d'herbe en question
 
     def dead(self): #fonction de mort des entitees
