@@ -1,6 +1,6 @@
 ﻿################################################# CREATION D'UNE CLASSE MONDE #############################################################
-
-class Creature(): #creation de la class Creature
+#Création de la class Creature
+class Creature():
     """
     La classe Créature est la classe gérant les aimaux et de laquelle ils héritent.
 

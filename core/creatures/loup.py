@@ -50,7 +50,7 @@ class Loup(Creature):
 #######################################################################################################################################
 
 ############################################ DEFINITION DE LA METHODE DE LA CLASSE LOUP ###############################################
-    #Méthode gérant les actions des moutons, appellée dans monde.py
+    #Méthode gérant les actions des loups, appellée dans monde.py
     def action(self):
         """
         Méthode permettant au loup de manger de l'herbe, bouger et essayer de se reproduire.
