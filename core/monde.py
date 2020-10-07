@@ -7,6 +7,17 @@ class Monde:
 
     """
     La classe qui s'occupe de la simulation
+
+    Attributs :
+        dimentions : tuple indiquant la taille de la map
+        carte : tableau a 2 dimentions contenant l'Herbe
+        carte_entitee = liste d'instance qui herite de Animal
+    Methodes :
+        iteration() : execute une iteration du monde
+        get_entitee_at(position) : retourne une liste des entitees situe en postion
+        get_entitee_of(type_) : retourne une liste de toute les entitee de type <type_>
+        get_herbee_at(position) : retourne l'herbe en position <position>
+        generate(entite,pourcentage): retourne une liste d'entite instancie pour chaque position de self.dimentions
     """
 
     def __init__(self,dimentions=(20,20)):
@@ -16,7 +27,6 @@ class Monde:
         self.carte_entitee.extend(self.generate(Mouton,30)) # genere un tableau de moutons contenant 30% de moutons
 
     def iteration(self): # fonction iteraction lancer automatiquement dans GUI.py ou chaque entite lance son action
-
         """
         Execute une iteration du monde.
         """
@@ -32,7 +42,7 @@ class Monde:
         # Action des animaux
         for x in self.carte_entitee:
             x.action()
-        self.carte_entitee.extend(self.carte_entitee_buf)
+        self.carte_entitee.extend(self.carte_entitee_buf) # ajout des naissances, car si on les ajoutes directement ils se font executer. 
 
 
     def get_entites_at(self,position): # Fonction qui retourne une liste des entitees en position demander en parametre
@@ -60,7 +70,8 @@ class Monde:
 
     def generate(self,entite,pourcentage): # genere toute les entitees ( herbe, mouton, loup)
         """
-        Genere pourcentage de entite sur des positions de self.dimentions
+        Genere pourcentage de entite sur des positions de self.dimentions.
+        Si l'entitee est de l'herbe, elle retourne un tableau a 2 dimentions d'herbe.
         """
         if entite == Herbe:
             return [[Herbe(self) for y in range(self.dimentions[1]) ]for x in range(self.dimentions[0])]
