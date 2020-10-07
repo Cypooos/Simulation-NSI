@@ -1,7 +1,9 @@
-﻿from core.monde import Monde # importation des modules necessaires
+﻿ # importation des modules necessaires
+from core.monde import Monde
 from GUI import PygameGui
 
 
+#lancement des programmes
 if __name__ == '__main__':
     monde = Monde((70,70))
     gui = PygameGui(monde,(700,700))

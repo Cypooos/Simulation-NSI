@@ -1,4 +1,5 @@
-﻿from core.environnement.herbe import Herbe # importation des modules necessaires
+﻿# importation des modules necessaires
+from core.environnement.herbe import Herbe
 from core.creatures.loup import Loup
 from core.creatures.mouton import Mouton
 from random import randint
@@ -42,7 +43,7 @@ class Monde:
         # Action des animaux
         for x in self.carte_entitee:
             x.action()
-        self.carte_entitee.extend(self.carte_entitee_buf) # ajout des naissances, car si on les ajoutes directement ils se font executer. 
+        self.carte_entitee.extend(self.carte_entitee_buf) # ajout des naissances, car si on les ajoutes directement ils se font executer.
 
 
     def get_entites_at(self,position): # Fonction qui retourne une liste des entitees en position demander en parametre
@@ -51,7 +52,7 @@ class Monde:
         """
         Entites_En_Position = []
         for entites in self.carte_entitee:
-            if entites.pos[0]==position[0] and entites.pos[1]==position[1]:
+            if entites.pos[0]==position[0] and entites.pos[1]==position[1]: # si la position en parametre est egale a la position d'une entitee, rajoute cette derniere a la liste
                 Entites_En_Position.append(entites)
         if Entites_En_Position == []:return None
         return Entites_En_Position
