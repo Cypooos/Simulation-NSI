@@ -1,8 +1,9 @@
-﻿import pygame
-from core.creatures.mouton import Mouton # importation des modules necessaires
+﻿# importation des modules necessaires
+import pygame
+from core.creatures.mouton import Mouton
 from core.creatures.loup import Loup
 
-class PygameGui():
+class PygameGui(): #creation de la class PygameGui
 
     speed = 0
 
@@ -39,7 +40,7 @@ class PygameGui():
         clock = pygame.time.Clock()
         exec_= 0
 
-        while self.running:
+        while self.running: #tant que la boucle principale est en cours d'excution
             self.dt = clock.tick()/1000 # Calculation du delaTime utile pour les transitions
             exec_ += self.dt
 
@@ -52,13 +53,11 @@ class PygameGui():
             pos = pygame.mouse.get_pos()
 
             for event in pygame.event.get():
-                try:
-                    if event.type == pygame.QUIT:self.quit();break
-                    elif event.type == pygame.MOUSEBUTTONDOWN:
-                        if event.button == 1:self.left_click(pos)
-                        if event.button == 3:self.right_click(pos)
-                    elif event.type == pygame.KEYDOWN:self.keys_down(event.keys)
-                except:pass
+                if event.type == pygame.QUIT:self.quit();break # creation de l'evenement quitter
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    if event.button == 1:self.left_click(pos) # si l'evenement est egal au click gauche
+                    if event.button == 3:self.right_click(pos) # si l'evenement est egal au click  droit
+
 
             keys = pygame.key.get_pressed()
             if keys[pygame.K_l]:self.left_click(pos)
@@ -74,3 +73,4 @@ class PygameGui():
     def quit(self): # fermeture de la fenetre
         pygame.quit()
         self.running = False
+        exit()
