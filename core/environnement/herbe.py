@@ -1,4 +1,4 @@
-﻿from random import randint
+﻿from random import randint # importation des modules necessaires
 
 class Herbe():
 
@@ -25,7 +25,7 @@ class Herbe():
     def getQuantite(self):
         return self.quantite
 
-    def action(self): # L'herbe ne ce deplace pas, juste regenere.
+    def action(self): # L'herbe ne ce deplace pas, juste regenere methode action appeler danss monde
         """
         Regeneration d'une quatite d'herbe.
         """

@@ -7,7 +7,7 @@ class Creature():
         self.pos=position
         self.monde = monde
 
-    def action(self):
+    def action(self):  # methode action appeler danss monde mais ecraser par les sous class
         self.pos[0]+=1
 
     def getColor(self): # la fonction getColor utillise par PygameGUI

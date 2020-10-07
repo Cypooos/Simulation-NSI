@@ -1,4 +1,4 @@
-﻿from core.creatures.creature import Creature
+﻿from core.creatures.creature import Creature # importation des modules necessaires
 from core.creatures.mouton import Mouton
 from random import randint
 
@@ -19,7 +19,7 @@ class Loup(Creature):
         self.monde = monde
 
 
-    def action(self):
+    def action(self):  # methode action appeler danss monde
 
         if self.getAround(Mouton) != None:
             var = self.getAround(Mouton)

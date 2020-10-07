@@ -1,4 +1,4 @@
-﻿from core.monde import Monde
+﻿from core.monde import Monde # importation des modules necessaires
 from GUI import PygameGui
 
 

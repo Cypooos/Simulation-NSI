@@ -1,4 +1,4 @@
-﻿from core.environnement.herbe import Herbe
+﻿from core.environnement.herbe import Herbe # importation des modules necessaires
 from core.creatures.loup import Loup
 from core.creatures.mouton import Mouton
 from random import randint
