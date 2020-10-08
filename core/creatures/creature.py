@@ -33,8 +33,8 @@ class Creature():
 
     # Méthode getColor crée la couleur et la taille des points repérsentants les créatures sur PygameGUI
     def getColor(self):
-        if self.nom == "Loup":return (234,227,226),0.5
-        if self.nom == "Mouton":return (255,88,149),0.4
+        if self.nom == "Loup":return (59, 59, 75),0.5
+        if self.nom == "Mouton":return (255,194,250),0.4
 
     # Méthode recherchant des entitées autour de l'entitée self en paramètre (8 blocs autour)
     def getAround(self,entite_to_seek):
