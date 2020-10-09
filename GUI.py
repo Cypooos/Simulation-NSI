@@ -6,7 +6,7 @@ from core.creatures.loup import Loup
 
 #######################################################################################################################################
 
-########################################################## PYGAMEGUI ##################################################################
+############################################### CREATION DE LA CLASSE PYGAMEGUI #######################################################
 
 #Création de la classe PygameGui
 class PygameGui():
@@ -30,16 +30,23 @@ class PygameGui():
         right_click(): réaction lorsque clic droit
     """
 
-
+    # Création de l'instance de classe de PygameGui
     speed = 0
 
-    def __init__(self,monde,size=(300,300)): #creation des attributs de la class PygameGui
+################################# CREATION DE LA FONCTION D'INITIALISATION DE LA CLASSE PYGAMEGUI AVEC SES ATTRIBUTS ##################################
+
+    #Initialisation de la classe PygameGui et de ses attributs
+    def __init__(self,monde,size=(300,300)):
         self.screen = None
         self.monde = monde
         self.running = False
         self.size = size
         pygame.init()
         self.dt = 0
+
+#######################################################################################################################################################
+
+################################################## DEFINITION DES METHODES DE LA CLASSE PYGAMEGUI #####################################################
 
     #Méthode dessinant le contenu de la fenêtre
     def draw(self):
@@ -120,3 +127,7 @@ class PygameGui():
         pygame.quit()
         self.running = False
         exit()
+
+#######################################################################################################################################################
+
+#######################################################################################################################################################
