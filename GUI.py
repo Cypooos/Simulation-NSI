@@ -16,7 +16,7 @@ class PygameGui():
     Instance de classe:
         speed: vitesse à laquelle des itérations sont réalisées.
 
-    Attributs :
+    Attributs communs à toutes les instances :
         screen: l'affichage de la fenêtre
         monde: la création du monde.
         running: lancement actif de pygame
@@ -30,7 +30,7 @@ class PygameGui():
         right_click(): réaction lorsque clic droit
     """
 
-    # Création de l'instance de classe de PygameGui
+    # Création de l'attribut commun à toutes les instances
     speed = 0
 
 ################################# CREATION DE LA FONCTION D'INITIALISATION DE LA CLASSE PYGAMEGUI AVEC SES ATTRIBUTS ##################################
@@ -83,10 +83,13 @@ class PygameGui():
 
         #Tant que la boucle principale est en cours d'excution
         while self.running:
-            self.dt = clock.tick()/1000 # Calculation du delaTime utile pour les transitions
+
+            # Calculation du delaTime utile pour les transitions
+            self.dt = clock.tick()/1000
             exec_ += self.dt
 
-            if exec_ > self.speed: # Execution automatique d'une ietration tout les self.speed secondes
+            # Execution automatique d'une ietration tout les self.speed secondes
+            if exec_ > self.speed:
                 self.monde.iteration()
                 exec_ = 0
 
@@ -96,7 +99,7 @@ class PygameGui():
 
             for event in pygame.event.get():
 
-                 # Création de l'évènement quitter
+                # Création de l'évènement quitter
                 if event.type == pygame.QUIT:self.quit();break
                 elif event.type == pygame.MOUSEBUTTONDOWN:
 

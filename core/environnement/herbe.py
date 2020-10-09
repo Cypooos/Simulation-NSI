@@ -9,7 +9,7 @@ class Herbe():
     """
     La classe herbe est la classe qui s'occupe de la gestion de l'herbe.
 
-    Instances de classe:
+    Attributs communs à toutes les instances:
         nom: nom permettant d'appeler l'herbe dans les autres fichiers.
         max_repousse: valeur maximum de repousse de l'herbe.
 
@@ -24,7 +24,7 @@ class Herbe():
         dead(): gère la "mort" d'un bloc d'herbe
     """
 
-    # Création des instances de classe d'Herbe
+    #Attributs communs à toutes les instances
     nom = "Herbe"
     max_repousse = 100
 

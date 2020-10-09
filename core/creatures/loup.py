@@ -13,7 +13,7 @@ class Loup(Creature):
     """
     La classe Loup est la classe qui s'occupe de la gestion des loups.
 
-    Instances de classe:
+    Attributs communs à toutes les instances:
         nom: nom permettant d'appeler les loups dans les autres fichiers.
         reproduction_energie: valeur énergétique nécessaire à un loup pour pouvoir se reproduire.
         start_energie: tuple de deux valeurs entre lesquelles on chosira un entier aléatoire qui donnera l'énergie
@@ -30,7 +30,7 @@ class Loup(Creature):
         action(): crée toutes les actions des loups (nourriture, reproduction, déplacement...)
     """
 
-    # Création des instances de classe de Mouton
+    # Création des attributs communs à toutes les instances
     nom = "Loup"
     reproduction_energie = 250
     start_energie = (80,130)

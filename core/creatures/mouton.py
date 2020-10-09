@@ -10,7 +10,7 @@ class Mouton(Creature):
     """
     La classe Mouton est la classe qui s'occupe de la gestion des moutons.
 
-    Instances de classe:
+    Attributs communs à toutes les instances:
         nom: nom permettant d'appeler les moutons dans les autres fichiers.
         reproduction_energie: valeur énergétique nécessaire à un mouton pour pouvoir se reproduire.
         start_energie: tuple de deux valeurs entre lesquelles on chosira un entier aléatoire qui donnera l'énergie
@@ -27,7 +27,7 @@ class Mouton(Creature):
         action(): crée toutes les actions des moutons (nourriture, reproduction, déplacement...)
     """
 
-    # Création des instances de classe de Mouton
+    # Création des attributs communs à toutes les instances
     nom = "Mouton"
     reproduction_energie = 160
     start_energie = (80,130)
@@ -61,7 +61,9 @@ class Mouton(Creature):
         if self.energie > self.max_energie:self.energie = self.max_energie
 
         self.energie-=randint(self.lose_energie[0],self.lose_energie[1])
-        if self.energie <= 0:self.dead() # condition qui appelant la fonction de mort
+
+        # Condition qui appelle la fonction de mort
+        if self.energie <= 0:self.dead()
 
         var = self.getAround_Herbe()
         self.pos[0] = var[0]
@@ -70,7 +72,8 @@ class Mouton(Creature):
         self.pos[0] %= self.monde.dimentions[0]
         self.pos[1] %= self.monde.dimentions[1]
 
-        if self.energie > self.reproduction_energie: # condition pour la reproduction, si self.energie est supérieure à reproduction_energie
+        # Condition pour la reproduction, si self.energie est supérieure à reproduction_energie
+        if self.energie > self.reproduction_energie:
             self.energie //= 2
             self.monde.carte_entitee_buf.append(Mouton([(self.pos[0]+randint(-1,1))%self.monde.dimentions[0],(self.pos[1]+randint(-1,1))%self.monde.dimentions[1]],self.monde,self.energie))
 

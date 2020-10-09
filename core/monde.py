@@ -33,9 +33,15 @@ class Monde:
 
         #Initialisation des attributs
         self.dimentions = dimentions
-        self.carte = self.generate(Herbe,100) # Génération du monde à 100% d'herbe
-        self.carte_entitee = self.generate(Loup,10) # Génère un tableau contenant 10% de loups
-        self.carte_entitee.extend(self.generate(Mouton,30)) # Génère un tableau contenant 30% de moutons
+
+            # Génération du monde à 100% d'herbe
+        self.carte = self.generate(Herbe,100)
+
+            # Génère un tableau contenant 10% de loups
+        self.carte_entitee = self.generate(Loup,10)
+
+             # Génère un tableau contenant 30% de moutons
+        self.carte_entitee.extend(self.generate(Mouton,30))
 
 ########################################################################################################################################
 
@@ -69,9 +75,11 @@ class Monde:
         """
         Entites_En_Position = []
         for entites in self.carte_entitee:
+
             # Si la position en paramètre est égale à la position d'une entitée, alors on rajoute cette dernière à la liste.
             if entites.pos[0]==position[0] and entites.pos[1]==position[1]:
                 Entites_En_Position.append(entites)
+
         if Entites_En_Position == []:return None
         return Entites_En_Position
 
