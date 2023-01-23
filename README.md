@@ -1,2 +1,4 @@
 # Simulation NSI
- A simulation 
+ 
+ A life grid-based simulation made in senior year of HS.
+ 
